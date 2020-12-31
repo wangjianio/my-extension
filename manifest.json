@@ -28,6 +28,12 @@
     },
     {
       "matches": [
+        "https://gitlab.qima-inc.com/*/branches*"
+      ],
+      "js": ["content-scripts/gitlabNewBranch.js"]
+    },
+    {
+      "matches": [
         "https://mp.weixin.qq.com/wxamp/wacodepage/getcodepage?*"
       ],
       "js": ["content-scripts/weixin.js"]
