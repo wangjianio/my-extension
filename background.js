@@ -44,7 +44,7 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
     }
   }
 }, {
-  urls: ["https://gitlab.qima-inc.com/guang/guang-h5-node/branches"],
+  urls: ["https://gitlab.qima-inc.com/*/branches"],
 });
 
 

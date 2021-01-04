@@ -87,3 +87,22 @@ if (/\/branches$/.test(location.pathname)) {
   appendNewButton('bus');
   appendNewButton('merge');
 }
+
+function http2https() {
+  const aList = Array.from(document.querySelector('.js-dropdown-menu-projects').querySelectorAll('a'));
+  if (aList.length) {
+    aList.forEach(a => {
+      if (/^http:/.test(a.href)) {
+        a.href = a.href.replace('http:', 'https:');
+      }
+    });
+  } else {
+    setTimeout(() => {
+      http2https();
+    }, 500);
+  }
+}
+
+document.querySelector('.js-projects-dropdown-toggle').addEventListener('click', () => {
+  http2https();
+});
