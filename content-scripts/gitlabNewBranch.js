@@ -1,4 +1,4 @@
-const authenticity_token = 'gCjAU7PfXBv6RC4K8luTBeaEleIIo6fSx+PhWj1mtIsYgJF4dnkzOC+Ssk4fLrr5U7Dt/u5oz5SJOZvDejXgPg==';
+const authenticity_token = 'hLDG+wnk8hczoVYLUWFz+sj70ih1WcpEDk8g18pSHUn5zWTB0ejXX0+5K9tGwj++FigMNtGkTjklYXKBOkZjNQ==';
 
 function createNewBranch(branchName, ref = 'master') {
   const formData = new FormData();
@@ -64,7 +64,8 @@ if (/\/branches$/.test(location.pathname)) {
   //   }
   // });
 
-  const dateString = new Date().toLocaleDateString().replace(/\//g, '');
+  const date = new Date();
+  const dateString = `${date.getFullYear()}${String(date.getMonth() + 1).padStart(2, '0')}${String(date.getDate()).padStart(2, '0')}`;
   const navControls = document.querySelector('.nav-controls');
 
   function appendNewButton(type) {
