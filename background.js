@@ -34,7 +34,7 @@ chrome.runtime.onMessage.addListener(
 // gitlab branch 页面默认按 update_time 排序
 chrome.webRequest.onBeforeRequest.addListener(function (details) {
   const { tabId, url } = details;
-  if (details.method === 'GET') {
+  if (details.method === 'GET' && !/commit/.test(url)) {
     const { searchParams, origin, pathname, hash } = new URL(url);
     if (!searchParams.has('sort')) {
       searchParams.append('sort', 'updated_desc');
