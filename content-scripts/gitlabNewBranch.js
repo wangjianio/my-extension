@@ -1,4 +1,7 @@
-const authenticity_token = 'hLDG+wnk8hczoVYLUWFz+sj70ih1WcpEDk8g18pSHUn5zWTB0ejXX0+5K9tGwj++FigMNtGkTjklYXKBOkZjNQ==';
+const authenticity_token = document.querySelector('meta[name=csrf-token]').content;
+
+const iconLoading = document.createElement('i');
+iconLoading.className = 'fa fa-spinner fa-spin';
 
 function createNewBranch(branchName, ref = 'master') {
   const formData = new FormData();
@@ -80,6 +83,8 @@ if (/\/branches$/.test(location.pathname)) {
     } else {
       button.addEventListener('click', () => {
         createNewBranch(branchName);
+        button.setAttribute('disabled', '');
+        button.insertBefore(iconLoading, button.firstChild);
       });
     }
     navControls.appendChild(button);
