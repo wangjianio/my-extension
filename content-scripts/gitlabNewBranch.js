@@ -85,6 +85,7 @@ if (/\/branches$/.test(location.pathname)) {
         const button = document.createElement('a');
         button.setAttribute('class', 'btn btn-default');
         button.textContent = `Merge to ${type}`;
+        button.style.boxShadow = '0 0 8px antiquewhite';
         const sourceBranch = item.className.replace(/^js-branch-/, '');
         const targetBranch = `${type}/${dateString}`;
         if (isExist(targetBranch)) {
