@@ -31,6 +31,21 @@ chrome.runtime.onMessage.addListener(
   }
 );
 
+// 跳转 https
+chrome.webRequest.onBeforeRequest.addListener(function (details) {
+  const { tabId, url } = details;
+  if (url.startsWith('http:')) {
+    chrome.tabs.update(tabId, {
+      url: url.replace('http:', 'https:'),
+    });
+  }
+}, {
+  urls: [
+    "http://gitlab.qima-inc.com/*",
+    "https://gitlab.qima-inc.com/*",
+  ],
+});
+
 // gitlab branch 页面默认按 update_time 排序
 chrome.webRequest.onBeforeRequest.addListener(function (details) {
   const { tabId, url } = details;
